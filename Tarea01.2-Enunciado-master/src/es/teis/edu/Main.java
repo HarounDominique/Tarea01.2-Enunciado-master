@@ -29,9 +29,12 @@ public class Main {
 
             DOMXMLService dxmls = new DOMXMLService();
 
-            dxmls.leerPartidos(ELECCIONES_INPUT_FILE, UMBRAL_PORCENTAJE);
+            ArrayList<Partido> partidos = dxmls.leerPartidos(ELECCIONES_INPUT_FILE, UMBRAL_PORCENTAJE);
+
+            mostrar(partidos);
 
         }catch(LecturaException le){
+
             le.printStackTrace();
         }
 

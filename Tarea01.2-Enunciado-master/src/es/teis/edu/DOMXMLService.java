@@ -66,24 +66,8 @@ public class DOMXMLService implements IXMLService {
                 }
             }
 
-            for (Partido p : partidos) {
-                System.out.println("Partido: " + contador + " " + p);
-                contador++;
-            }
+            partidos.removeIf(p -> p.getPorcentaje() < umbral);
 
-            partidos.removeIf(p -> p.getPorcentaje() > umbral);
-
-            System.out.println("----------------------------");
-
-            System.out.println("Partidos que superan el umbral:");
-            System.out.println(" ");
-
-            contador = 1;
-
-            for (Partido p : partidos) {
-                System.out.println("Partido: " + contador + " " + p);
-                contador++;
-            }
 
         } catch (ParserConfigurationException pce) {
             pce.printStackTrace();
