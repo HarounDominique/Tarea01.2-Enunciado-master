@@ -30,8 +30,6 @@ public class DOMXMLService implements IXMLService {
 
         ArrayList<Partido> partidos = new ArrayList<>();
 
-        int contador = 1;
-
         try {
 
             File inputFile = new File(ruta);
@@ -43,8 +41,6 @@ public class DOMXMLService implements IXMLService {
             doc.getDocumentElement().normalize();
 
             NodeList nList = doc.getElementsByTagName(PARTIDO_TAG);
-
-            System.out.println("----------------------------");
 
             for (int i = 0; i < nList.getLength(); i++) {
 
@@ -69,12 +65,12 @@ public class DOMXMLService implements IXMLService {
             partidos.removeIf(p -> p.getPorcentaje() < umbral);
 
 
-        } catch (ParserConfigurationException pce) {
-            pce.printStackTrace();
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        } catch (SAXException saxe) {
-            saxe.printStackTrace();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
 
         }
         return partidos;

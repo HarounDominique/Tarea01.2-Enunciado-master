@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Main {
 
     private static final String ELECCIONES_INPUT_FILE = Paths.get("D:\\IntelliJ_Projects\\Tarea01.2-Enunciado-master\\Tarea01.2-Enunciado-master\\src\\docs\\elecciones.xml").toString();
-    private static final String ELECCIONES_OUTPUT_FILE = Paths.get("src", "docs", "elecciones_output.dat").toString();
+    private static final String ELECCIONES_OUTPUT_FILE = Paths.get("D:\\IntelliJ_Projects\\Tarea01.2-Enunciado-master\\Tarea01.2-Enunciado-master\\src\\docs\\elecciones_output.dat").toString();
 
     private static final float UMBRAL_PORCENTAJE = 3;
 
@@ -32,6 +32,12 @@ public class Main {
             ArrayList<Partido> partidos = dxmls.leerPartidos(ELECCIONES_INPUT_FILE, UMBRAL_PORCENTAJE);
 
             mostrar(partidos);
+
+            PartidoObjectPersistencia pop = new PartidoObjectPersistencia();
+
+            pop.escribir(partidos, ELECCIONES_OUTPUT_FILE);
+
+            pop.leerTodo(ELECCIONES_OUTPUT_FILE);
 
         }catch(LecturaException le){
 
